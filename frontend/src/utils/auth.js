@@ -1,4 +1,4 @@
-export const url = 'http://localhost:3000';
+export const url = 'http://aaa2208bek.nomoredomains.work';
 
 const checkResponse = (res) => {
   if (res.ok) {
