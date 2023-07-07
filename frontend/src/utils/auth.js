@@ -35,14 +35,13 @@ export const authorize = (email, password) => {
   })
 }
 
-export const checkToken = (token) => {
+export const checkToken = () => {
   return fetch(`${url}/users/me`, {
     method: 'GET',
     headers: {
-      Accept: 'application/json',
+      'authorization': `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    }
+      }
   })
   .then(checkResponse)
 }
