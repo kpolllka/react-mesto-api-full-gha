@@ -81,7 +81,7 @@ class Api {
 }
 
 const api = new Api({
-  url: 'http://aaa2208bek.nomoredomains.work',
+  url: 'https://aaa2208bek.nomoredomains.work',
   headers: {
     'authorization': `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json',

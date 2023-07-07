@@ -1,4 +1,4 @@
-export const url = 'http://aaa2208bek.nomoredomains.work';
+export const url = 'https://aaa2208bek.nomoredomains.work';
 
 const checkResponse = (res) => {
   if (res.ok) {
