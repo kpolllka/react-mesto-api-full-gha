@@ -27,19 +27,19 @@ export const authorize = (email, password) => {
     body: JSON.stringify({ email, password }),
   })
   .then(checkResponse)
-  .then((data) => {
-    if(data.token) {
-      localStorage.setItem('token', data.token);
-      return data;
-    }
-  })
+  // .then((data) => {
+  //   if(data.token) {
+  //     localStorage.setItem('token', data.token);
+  //     return data;
+  //   }
+  // })
 }
 
 export const checkToken = () => {
   return fetch(`${url}/users/me`, {
     method: 'GET',
     headers: {
-      'authorization': `Bearer ${localStorage.getItem('token')}`,
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json',
       }
   })
