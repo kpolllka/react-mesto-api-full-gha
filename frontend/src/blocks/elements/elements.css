@@ -1,0 +1,18 @@
+.elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 880px;
+  min-height: 744px;
+  row-gap: 20px;
+  column-gap: 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .elements {
+    max-width: 282px;
+    min-height: 2268px;
+  }
+}

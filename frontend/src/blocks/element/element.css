@@ -1,0 +1,10 @@
+.element {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 282px;
+  min-height: 361px;
+  margin: 0;
+  padding: 0;
+}

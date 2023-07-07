@@ -1,0 +1,10 @@
+.element__group-like {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  max-width: 22px;
+  background: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
