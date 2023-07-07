@@ -119,31 +119,4 @@ const getAuthProfile = (req, res, next) => {
     });
 };
 
-// Логин с куками
-// const login = (req, res, next) => {
-//   const { email, password } = req.body;
-
-//   if (!email || !password) {
-//     res.status(403).send({ message: 'Введите email и пароль' });
-//     return;
-//   }
-
-//   User.findOne({ email })
-//     .select('+password')
-//     .orFail(() => new Error('Пользователь не найден'))
-//     .then((user) => {
-//       bcrypt.compare(String(password), user.password)
-//         .then((isValidUser) => {
-//           if (isValidUser) {
-//           const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, { expiresIn: '7d' });
-//             res.cookie('jwt', token, { maxAge: 36000, httpOnly: true, sameSite: true });
-//             res.send({ token });
-//           } else {
-//             res.status(401).send({ message: 'Не верный логин или пароль' });
-//           }
-//         })
-//         .catch(next);
-//     });
-// };
-
 module.exports = { createUser, getUsers, getUserId, editUser, editAvatar, login, getAuthProfile };

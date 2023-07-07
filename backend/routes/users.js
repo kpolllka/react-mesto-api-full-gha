@@ -3,9 +3,6 @@ const { celebrate, Joi } = require('celebrate');
 const routerUser = require('express').Router();
 const { getUsers, getUserId, editUser, editAvatar, getAuthProfile } = require('../controllers/users');
 
-// routerUser.post('/users', createUser); // Создаём пользователя
-// routerUser.post('/signup', createUser); // Регистрация пользователя
-// routerUser.post('/signin', login); // Авторизация пользователя
 routerUser.get('/users', getUsers); // Получаем всех пользователей
 
 routerUser.get('/users/me', getAuthProfile); // Получаем данные об авторизованном пользователе
