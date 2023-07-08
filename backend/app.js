@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 
 const routerUser = require('./routes/users');
 const routerCards = require('./routes/cards');
@@ -14,7 +15,6 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 const errorHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { limiter } = require('./middlewares/limiter');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
@@ -27,6 +27,13 @@ mongoose.connect(DB_URL, {
 app.use(express.json());
 app.use(helmet());
 app.use(requestLogger); // подключили логгер запросов
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
 app.use(limiter); // подключили лимитер запросов для ограничения кол-ва запросов к API
 
 app.get('/crash-test', () => {
