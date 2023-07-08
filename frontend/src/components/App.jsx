@@ -142,7 +142,10 @@ function App() {
         setUserEmail(email);
         navigate('/');        
       }
-    }).catch((error) => console.log(`Ошибка ${error}`));
+    })
+    .catch((error) => {console.log(`Ошибка ${error}`);
+    setInfoTooltipPopupOpen(true);
+    })
   }
 
   const onSignOut = () => {
